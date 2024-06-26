@@ -8,7 +8,7 @@ from io import BytesIO
 from src.models.citizen_model import CitizenInfo
 
 # Load the .NET assembly
-libPath = os.getcwd() + '\\readerLib\\FPTIDReaderSDK.dll'
+libPath = os.getcwd() + '\\readerLibs\\FPTIDReaderSDK.dll'
 clr.AddReference(libPath)
 
 # Import namespaces from the .NET assembly
