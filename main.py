@@ -16,10 +16,11 @@ icReaderWrappers = ICReaderWrappers()
 
 @app.get("/read-info")
 def read_current_card():
-    icReaderWrappers.connect()
-
-    print(icReaderWrappers.l_smart_cards[0])
-    # print(icReaderWrappers.l_mrz_ports[0])
-    icReaderWrappers.read_citizen_info()
-    print(icReaderWrappers.current_info.toJson())
+    try:
+        icReaderWrappers.connect()
+        icReaderWrappers.read_citizen_info()
+        return icReaderWrappers.current_info.toJson()
+    except Exception as e:
+        return {"error": str(e)}
+    
     
